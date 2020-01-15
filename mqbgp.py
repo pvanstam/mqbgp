@@ -1,9 +1,16 @@
 '''
-    mqbgp - Module for NaWas messaging with MQ 
+    mqbgp - Module for processing BGP updates (announce/withdraw) with Message Queueing bus 
     
-    The NaWas uses RabbitMQ as message broker and AMQP as messaging standard
-    This library standardize the NaWas message types and send and receive functions
+    The implementation uses RabbitMQ as message broker and AMQP as messaging standard
+    This library standardize the BGP message types and send and receive functions
 
+    The following types of messages are implemented in this library:
+    * PrefixMessage (BGP announce or withdraw)
+    * PrefixListMessage (actual list of advertised) BGP prefixes
+    * PrefixListRequestMessage (requesting a PrefixListMessage)
+    
+    The idea with PrefixListMessage is a system keeping track of the PrefixMessages and is able to supply the current
+    list of BGP prefixes. This system can sent it by itself (periodcally) or on request, by receiving a PrefixListRequestMessage()
 
     Created on 30 jun. 2017
 
