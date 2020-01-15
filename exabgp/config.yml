@@ -1,0 +1,14 @@
+rabbitmq:
+    host: 192.168.1.1
+    port: 5672
+    user: exabgp
+    password: some_secret
+    exchange: exabgp
+mail:
+    from: mqbgp@mailserver.com
+    to: [support@mailserver.com]
+smtp:
+    host: smtp.mailserver.com
+    port: 25
+    user:
+    password:
